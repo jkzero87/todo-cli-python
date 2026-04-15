@@ -1,4 +1,3 @@
-```python
 import sys              # Permite terminar el programa y trabajar con el sistema
 import json             # Permite leer/escribir datos en formato JSON
 import os               # Permite verificar si archivos existen
@@ -163,4 +162,3 @@ elif command == "done":
 
 elif command == "delete":
     handle_delete(args.index, tasks, FILE)
-```
