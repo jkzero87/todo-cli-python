@@ -1,90 +1,48 @@
-# 📝 Todo CLI en Python
+# Todo CLI en Python
 
-Aplicación de línea de comandos (CLI) para gestionar tareas usando Python y almacenamiento en JSON.
+Gestor de tareas para la terminal. Guarda las tareas en un archivo JSON y
+usa `argparse` para los subcomandos. Sin dependencias externas: solo Python 3.
 
----
-
-## 🚀 Funcionalidades
-
-* ➕ Agregar tareas
-* 📋 Listar tareas
-* ✅ Marcar tareas como completadas
-* ❌ Eliminar tareas
-
----
-
-## 🧠 Tecnologías usadas
-
-* Python 3
-* JSON (para persistencia de datos)
-
----
-
-## 📦 Uso
-
-### ➕ Agregar una tarea
+## Uso
 
 ```bash
-python3 todo.py add "Estudiar Python"
+python3 todo.py add "Estudiar Python"   # agrega una tarea
+python3 todo.py list                    # lista todas
+python3 todo.py done 1                  # marca la 1 como completada
+python3 todo.py delete 1                # elimina la 1
 ```
 
----
-
-### 📋 Listar tareas
-
-```bash
-python3 todo.py list
-```
-
----
-
-### ✅ Marcar como completada
-
-```bash
-python3 todo.py done 1
-```
-
----
-
-### ❌ Eliminar una tarea
-
-```bash
-python3 todo.py delete 1
-```
-
----
-
-## 📁 Estructura del proyecto
+Ejemplo de una sesión:
 
 ```
-todo-cli-python/
-├── todo.py
-├── tasks.json
-├── .gitignore
-└── README.md
+$ python3 todo.py add "Estudiar Python"
+Tarea agregada
+$ python3 todo.py add "Repasar SQL"
+Tarea agregada
+$ python3 todo.py done 1
+Tarea marcada como completada
+$ python3 todo.py list
+1. [✓] Estudiar Python
+2. [✗] Repasar SQL
 ```
 
----
+Las tareas se numeran desde 1. Un número que no existe imprime
+`tarea no válida` y sale con código 1. Sin subcomando, muestra la ayuda.
 
-## 💡 Qué aprendí con este proyecto
+Las tareas viven en `tasks.json`, en la carpeta desde donde se ejecuta el
+comando. El archivo se crea con la primera tarea y está en `.gitignore`. Si se
+corrompe o queda vacío, el programa arranca con una lista vacía.
 
-* Manejo de archivos en Python
-* Uso de JSON para guardar datos
-* Creación de aplicaciones CLI
-* Validación de inputs
-* Lógica tipo CRUD (Create, Read, Update, Delete)
+## Qué practiqué
 
----
+- Lectura y escritura de archivos con JSON
+- Subcomandos con `argparse`
+- Validación de entradas
+- Operaciones CRUD
 
-## 🔧 Mejoras futuras
+## Ideas pendientes
 
-* Soporte para `undo` (desmarcar tareas)
-* Uso de `argparse` para CLI profesional
-* Colores en la terminal
-* Conversión a comando global (`todo`)
-
----
-
-## 👤 Autor
-
-GitHub: https://github.com/jkzero87
+- `undo` para desmarcar una tarea
+- Colores en la terminal
+- Instalarlo como comando global (`todo`)
+- Guardar `tasks.json` en una ruta fija para no depender de la carpeta actual
